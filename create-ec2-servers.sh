@@ -3,7 +3,7 @@
 ##### Change these values ###
 ZONE_ID="Z103214126L48SQW30RSR"
 DOMAIN="devopsb71.online"
-SG_NAME="allow-all"
+#SG_NAME="allow-all"
 #############################
 
 
@@ -46,6 +46,6 @@ fi
 
 
 for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis dispatch; do
-  COMPONENT="${component}-dev"
+  COMPONENT="${component}"
   create_ec2
 done

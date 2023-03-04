@@ -1,5 +1,5 @@
 
-echo Install Nginx
+echo -e "\e[30m Install Nginx \e[0m"
 yum install nginx -y
 
 echo enable Nginx

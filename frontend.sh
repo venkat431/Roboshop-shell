@@ -1,24 +1,24 @@
 
-echo -e "\e[30m Install Nginx \e[0m"
+echo -e "\e[36m Installing Nginx \e[0m"
 yum install nginx -y
 
-echo enable Nginx
+echo -e "\e[36m Enabling Nginx \e[0m"
 systemctl enable nginx
 
-echo start Nginx
+echo -e "\e[36m starting Nginx \e[0m"
 systemctl start nginx
 
-echo Remove old files
+echo -e "\e[36m Remove old files \e[0m"
 rm -rf /usr/share/nginx/html/*
 
-echo download Frontend files
+echo -e "\e[36m download Frontend files \e[0m"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
 
-echo change directory
+echo  -e "\e[36m change directory \e[0m"
 cd /usr/share/nginx/html
 
-echo unzip the downloaded files
+echo  -e "\e[36m unzip the downloaded files \e[0m"
 unzip /tmp/frontend.zip
 
-echo restart Nginx
+echo  -e "\e[36m restart Nginx \e[0m"
 systemctl restart nginx

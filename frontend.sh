@@ -14,6 +14,8 @@ cd /usr/share/nginx/html
 echo  -e "\e[36m unzip the downloaded files \e[0m"
 unzip /tmp/frontend.zip
 
+cp configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
+
 echo -e "\e[36m Enabling Nginx \e[0m"
 systemctl enable nginx
 

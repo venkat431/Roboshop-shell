@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z103214126L48SQW30RSR"
-DOMAIN="devopsb71.online"
-#SG_NAME="allow-all"
+ZONE_ID="Z08931683BP7DV5GJ0PAA"
+DOMAIN="devops-practice.tech"
+SG_NAME="allow-all"
 #############################
 
 

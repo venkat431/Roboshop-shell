@@ -14,7 +14,7 @@ cd /usr/share/nginx/html
 echo  -e "\e[36m unzip the downloaded files \e[0m"
 unzip /tmp/frontend.zip
 
-pwd
+cd /roboshop-shell/
 
 cp configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 

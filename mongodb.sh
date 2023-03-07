@@ -1,4 +1,7 @@
 
+
+cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongo.repo
+
 echo -e "\e[36m Installing MongoDB  \e[0m"
 yum install mongodb-org -y
 

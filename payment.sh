@@ -1,10 +1,16 @@
+code_dir=$(pwd)
 
+echo -e "\e[36m Installing Python \e[0m"
 yum install python36 gcc python3-devel -y
 
+echo -e "\e[36m Adding Application user \e[0m"
 useradd roboshop
 
+echo -e "\e[36m creating Application folder \e[0m"
 mkdir /app
+rm -rf /app/*
 
+echo -e "\e[36m Reload the service \e[0m"
 curl -L -o /tmp/payment.zip https://roboshop-artifacts.s3.amazonaws.com/payment.zip
 cd /app
 unzip /tmp/payment.zip

@@ -1,3 +1,5 @@
+code_dir=$(pwd)
+
 echo -e "\e[36m Installing Maven  \e[0m"
 yum install maven -y
 

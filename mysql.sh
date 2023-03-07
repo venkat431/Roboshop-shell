@@ -1,3 +1,5 @@
+code_dir=$(pwd)
+
 echo -e "\e[36m Disabling Mysql  \e[0m"
 dnf module disable mysql -y
 

@@ -1,3 +1,5 @@
+code_dir=$(pwd)
+
 echo -e "\e[36m Downloading Nodejs repo \e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 

@@ -1,3 +1,5 @@
+code_dir=$(pwd)
+
 echo -e "\e[36m Downloading Nodejs repo \e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
@@ -7,6 +9,7 @@ yum install nodejs -y
 echo -e "\e[36m Adding application user \e[0m"
 useradd roboshop
 
+echo -e "\e[36m Creating application folder \e[0m"
 mkdir /app
 rm -rf /app/*
 

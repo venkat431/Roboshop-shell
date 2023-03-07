@@ -41,4 +41,4 @@ echo -e "\e[36m Installing MongoDB client \e[0m"
 yum install mongodb-org-shell -y
 
 echo -e "\e[36m Connecting MongoDB schema \e[0m"
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+mongo --host mongodb.devops-practice.tech </app/schema/catalogue.js

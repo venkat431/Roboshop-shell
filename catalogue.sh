@@ -23,7 +23,7 @@ echo -e "\e[36m Installing npm packages \e[0m"
 npm install
 
 echo -e "\e[36m Copying service file \e[0m"
-cp /configs/catalogue.service /etc/systemd/system/catalogue.service
+cp configs/catalogue.service /etc/systemd/system/catalogue.service
 
 echo -e "\e[36m Reload Service file \e[0m"
 systemctl daemon-reload

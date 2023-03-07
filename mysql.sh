@@ -13,7 +13,6 @@ systemctl enable mysqld
 echo -e "\e[36m Starting mysql serice \e[0m"
 systemctl start mysqld
 
-echo -e "\e[36m Set root password \e[0m"
 mysql_secure_installation --set-root-pass RoboShop@1
 
 echo -e "\e[36m Connecting Mysql \e[0m"

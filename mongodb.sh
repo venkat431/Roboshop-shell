@@ -1,4 +1,4 @@
-
+code_dir=$(pwd)
 
 cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongo.repo
 

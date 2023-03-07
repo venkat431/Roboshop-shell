@@ -11,28 +11,28 @@ mkdir /app
 rm -rf /app/*
 
 echo -e "\e[36m Downloading Catalogue files \e[0m"
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
+curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip
 
 cd /app
 
 echo -e "\e[36m Extracting Files \e[0m"
-unzip /tmp/catalogue.zip
+unzip /tmp/user.zip
 cd /app
 
 echo -e "\e[36m Installing npm packages \e[0m"
 npm install
 
 echo -e "\e[36m Copying service file \e[0m"
-cp ${code_dir}/configs/catalogue.service /etc/systemd/system/catalogue.service
+cp ${code_dir}/configs/user.service /etc/systemd/system/user.service
 
 echo -e "\e[36m Reload Service file \e[0m"
 systemctl daemon-reload
 
-echo -e "\e[36m Enabling catalogue service \e[0m"
-systemctl enable catalogue
+echo -e "\e[36m Enabling user service \e[0m"
+systemctl enable user
 
-echo -e "\e[36m catalogue control service \e[0m"
-systemctl start catalogue
+echo -e "\e[36m Starting user service \e[0m"
+systemctl start user
 
 echo -e "\e[36m Copying MONGODB repo file  \e[0m"
 cp ${code_dir}/configs/mongodb.repo /etc/yum/repos.d/mongo.repo

@@ -38,7 +38,7 @@ echo -e "\e[36m Starting user service \e[0m"
 systemctl start user
 
 echo -e "\e[36m Copying MONGODB repo file  \e[0m"
-cp ${code_dir}/configs/mongodb.repo /etc/yum/repos.d/mongo.repo
+cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[36m Installing MongoDB client \e[0m"
 yum install mongodb-org-shell -y

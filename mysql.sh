@@ -18,5 +18,5 @@ systemctl start mysqld
 mysql_secure_installation --set-root-pass RoboShop@1
 
 echo -e "\e[36m Connecting Mysql \e[0m"
-mysql -uroot -pRoboShop@1
+#mysql -uroot -pRoboShop@1
 

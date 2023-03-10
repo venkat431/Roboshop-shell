@@ -12,7 +12,7 @@ echo -e "\e[36m Starting the MongoDB service \e[0m"
 systemctl start mongod &>>${log_file}
 
 #update 127.0.0.1 to 0.0.0.0 in conf file
-echo "Update MongoDB Listen address"
+echo  -e "\e[36m Update MongoDB Listen address \e[0m "
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${log_file}
 
 echo -e "\e[36m Restart MongoDB service \e[0m"

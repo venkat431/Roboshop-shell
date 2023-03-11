@@ -1,22 +1,22 @@
 source common.sh
 
-echo -e "\e[36m Disabling Mysql  \e[0m"
+print_head " Disabling Mysql  "
 dnf module disable mysql -y &>>${log_file}
 
-echo -e "\e[36m Copying mysql config file \e[0m"
+print_head " Copying mysql config file "
 cp ${code_dir}/configs/mysql.repo /etc/yum.repos.d/mysql.repo &>>${log_file}
 
-echo -e "\e[36m Installing mysql  \e[0m"
+print_head " Installing mysql  "
 yum install mysql-community-server -y &>>${log_file}
 
-echo -e "\e[36m Enabling mysql service \e[0m"
+print_head " Enabling mysql service "
 systemctl enable mysqld &>>${log_file}
 
-echo -e "\e[36m Starting mysql serice \e[0m"
+print_head " Starting mysql serice "
 systemctl start mysqld &>>${log_file}
 
 mysql_secure_installation --set-root-pass RoboShop@1 &>>${log_file}
 
-echo -e "\e[36m Connecting Mysql \e[0m"
+print_head " Connecting Mysql "
 #mysql -uroot -pRoboShop@1 &>>${log_file}
 

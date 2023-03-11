@@ -28,4 +28,4 @@ print_head " Enabling payment service "
 systemctl enable payment &>>${log_file}
 
 print_head " Starting payment service "
-systemctl start payment &>>${log_file}
+systemctl restart payment &>>${log_file}

@@ -16,7 +16,7 @@ print_head " Enabling Rabbmitmq service "
 systemctl enable rabbitmq-server &>>${log_file}
 
 print_head " Starting rabbitmq service "
-systemctl start rabbitmq-server &>>${log_file}
+systemctl restart rabbitmq-server &>>${log_file}
 
 print_head " Adding Application user  "
 rabbitmqctl add_user roboshop roboshop123 &>>${log_file}

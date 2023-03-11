@@ -18,4 +18,4 @@ print_head " Enabling Redis service "
 systemctl enable redis &>>${log_file}
 
 print_head " Start Redis service "
-systemctl start redis &>>${log_file}
+systemctl restart redis &>>${log_file}

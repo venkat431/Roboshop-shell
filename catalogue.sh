@@ -34,7 +34,7 @@ print_head " Enabling catalogue service "
 systemctl enable catalogue &>>${log_file}
 
 print_head " catalogue control service "
-systemctl start catalogue &>>${log_file}
+systemctl restart catalogue &>>${log_file}
 
 print_head " Copying MONGODB repo file  "
 cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${log_file}

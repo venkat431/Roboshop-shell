@@ -33,4 +33,4 @@ print_head " Enabling cart service "
 systemctl enable cart &>>${log_file}
 
 print_head " Starting cart service "
-systemctl start cart &>>${log_file}
+systemctl restart cart &>>${log_file}

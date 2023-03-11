@@ -35,7 +35,7 @@ print_head " Enabling user service "
 systemctl enable user &>>${log_file}
 
 print_head " Starting user service "
-systemctl start user &>>${log_file}
+systemctl restart user &>>${log_file}
 
 print_head " Copying MONGODB repo file  "
 cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${log_file}

@@ -31,7 +31,7 @@ print_head " Enabling shipping Service  "
 systemctl enable shipping &>>${log_file}
 
 print_head " Starting shipping Service  "
-systemctl start shipping &>>${log_file}
+systemctl restart shipping &>>${log_file}
 
 print_head " Installing MYSQL "
 yum install mysql -y &>>${log_file}

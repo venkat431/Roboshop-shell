@@ -9,7 +9,7 @@ print_head " Enabling MongoDB service "
 systemctl enable mongod &>>${log_file}
 
 print_head " Starting the MongoDB service "
-systemctl start mongod &>>${log_file}
+systemctl restart mongod &>>${log_file}
 
 #update 127.0.0.1 to 0.0.0.0 in conf file
 echo  -e "\e[36m Update MongoDB Listen address  "

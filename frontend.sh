@@ -14,7 +14,7 @@ status_check $?
 
 cd /usr/share/nginx/html
 
-print_head " Extracting the downloaded files "
+print_head "Extracting the downloaded files "
 unzip /tmp/frontend.zip &>>${log_file}
 status_check $?
 
@@ -26,6 +26,6 @@ print_head "Enabling Nginx "
 systemctl enable nginx &>>${log_file}
 status_check $?
 
-print_head "starting Nginx  "
+print_head "Starting Nginx  "
 systemctl restart nginx &>>${log_file}
 status_check $?

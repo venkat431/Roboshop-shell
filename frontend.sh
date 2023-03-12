@@ -3,6 +3,12 @@ source common.sh
 print_head "Installing Nginx"
 yum install nginx -y &>>${log_file}
 echo $?
+if {
+  [ "$?" eq 0 ] then
+  echo success
+  else
+    echo Failure
+}
 
 print_head "Removing old files"
 rm -rf /usr/share/nginx/html/*  &>>${log_file}

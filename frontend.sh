@@ -9,6 +9,7 @@ if {
   else
     echo Failure
 }
+fi
 
 print_head "Removing old files"
 rm -rf /usr/share/nginx/html/*  &>>${log_file}

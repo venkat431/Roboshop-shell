@@ -15,7 +15,13 @@ if [ $? -ne 0 ]; then
 fi
 status_check $?
 
-mkdir /app &>>${log_file}
+print_head " Creating Application directory "
+if [ ! -d /app ]; then
+  mkdir /app &>>${log_file}
+fi
+status_check $?
+
+print_head " Removing Old files "
 rm -rf /app/* &>>${log_file}
 status_check $?
 

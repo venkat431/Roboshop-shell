@@ -3,6 +3,7 @@ source common.sh
 print_head " Installing Maven  "
 yum install maven -y &>>${log_file}
 
+
 print_head " Adding roboshop user "
 useradd roboshop &>>${log_file}
 

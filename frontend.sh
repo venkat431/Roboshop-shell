@@ -1,11 +1,12 @@
 source common.sh
 
 print_head "Installing Nginx"
-yum install nginx -y &>>${log_file}
+yum install nginnx -y &>>${log_file}
 if [ $? -eq 0 ]; then
-  echo success
+  echo SUCCESS
   else
-    echo Failure
+    echo FAILURE
+    exit
 fi
 
 print_head "Removing old files"

@@ -16,9 +16,9 @@ fi
 status_check $?
 
 print_head " Creating Application directory "
-if [ ! -d /app ]; then
+#if [ ! -d /app ]; then
   mkdir /app &>>${log_file}
-fi
+#fi
 status_check $?
 
 print_head " Removing Old files "

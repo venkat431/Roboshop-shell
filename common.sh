@@ -77,9 +77,11 @@ schema_setup() {
   elif [ "${schema_type}" == "mysql" ]; then
     print_head "Installing mysql "
     yum install mysql -y &>>${log_file}
+    status_check $?
 
     print_head "Connecting mysql database"
     mysql -h mysql.devops-practice.tech -uroot -p${mysql_root_password} < /app/schema/${component}.sql &>>${log_file}
+    status_check $?
   fi
 }
 

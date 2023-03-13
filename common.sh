@@ -62,7 +62,7 @@ status_check $?
 cd /app &>>${log_file}
 
 print_head " Extracting Files "
-unzip /tmp/catalogue.zip &>>${log_file}
+unzip /tmp/${component}.zip &>>${log_file}
 status_check $?
 
 cd /app &>>${log_file}

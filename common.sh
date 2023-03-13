@@ -16,3 +16,9 @@ status_check() {
       exit 1
   fi
 }
+app_useradd(){
+id roboshop &>>${log_file}
+if [ $? -ne 0 ]; then
+  useradd roboshop &>>${log_file}
+fi
+}

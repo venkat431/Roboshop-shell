@@ -12,6 +12,7 @@ status_check() {
     echo SUCCESS
     else
       echo FAILURE
+      echo "Read the log file at ${log_file} for errors"
       exit 1
   fi
 }

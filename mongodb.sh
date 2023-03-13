@@ -17,10 +17,10 @@ systemctl restart mongod &>>${log_file}
 status_check $?
 
 #update 127.0.0.1 to 0.0.0.0 in conf file
-print_head "Update MongoDB Listen address"
+print_head "Updating MongoDB Listen address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${log_file}
 status_check $?
 
-print_head " Restart MongoDB service "
+print_head " Restarting MongoDB service "
 systemctl restart mongod &>>${log_file}
 status_check $?

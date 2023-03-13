@@ -115,7 +115,11 @@ java() {
 
   print_head "Cleaning Maven package"
   mvn clean package &>>${log_file}
+  status_check $?
+
+  print_head "Moving Jar file to application folder"
   mv target/${component}-1.0.jar ${component}.jar &>>${log_file}
+  status_check $?
 
   #Schema setup function is calling
   schema_setup

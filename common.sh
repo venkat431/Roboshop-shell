@@ -15,7 +15,7 @@ status_check() {
       exit 1
   fi
 }
-app_prereq() {
+app_prereq_setup() {
   print_head "Adding application user "
   id roboshop &>>${log_file}
   if [ $? -ne 0 ]; then
@@ -92,7 +92,7 @@ nodejs() {
   yum install nodejs -y &>>${log_file}
   status_check $?
   
-  app_prereq 
+  app_prereq_setup
   
   cd /app &>>${log_file}
   print_head "Installing npm packages "
@@ -109,7 +109,8 @@ java() {
   yum install maven -y &>>${log_file}
   status_check $?
 
-  app_prereq
+  #Setting Application prerequisites by calling function
+  app_prereq_setup
 
   cd /app &>>${log_file}
 

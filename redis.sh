@@ -13,12 +13,8 @@ yum install redis -y &>>${log_file}
 status_check $?
 
 #edit file vim /etc/redis.conf & vim /etc/redis/redis.conf
-print_head " Setting Listen address 1"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf &>>${log_file}
-status_check $?
-
-print_head " Setting Listen address 2"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf &>>${log_file}
+print_head " Update Redis Listen address "
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>${log_file}
 status_check $?
 
 print_head " Enabling Redis service "

@@ -22,15 +22,13 @@ print_head " Enabling mysql service "
 systemctl enable mysqld &>>${log_file}
 status_check $?
 
-print_head " Starting mysql serice "
+print_head " Starting mysql service "
 systemctl restart mysqld &>>${log_file}
 status_check $?
 
-print_head " Starting mysql serice "
-
-mysql_secure_installation --set-root-pass ${mysql_root_password} &>>${log_file}
-status_check $?
-
-print_head " Connecting Mysql "
-#mysql -uroot -pRoboShop@1 &>>${log_file}
+print_head " Starting mysql service "
+echo show databases | mysql -uroot -p${mysql_root_password} &>>${log_file}
+if [ $? -ne 0 ]; then
+  mysql_secure_installation --set-root-pass ${mysql_root_password} &>>${log_file}
+fi
 status_check $?

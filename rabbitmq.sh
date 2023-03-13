@@ -1,25 +1,38 @@
 source common.sh
 
+roboshop_app_password=$1
+if [ -z "${roboshop_app_password}" ]; then
+  echo -e "\e[31mRoboshop App password argument is missing\e[0m"
+  exit 1
+fi
+
 print_head " Downloading Erlang files "
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>>${log_file}
-
-print_head " Installing Erlang "
-yum install erlang -y &>>${log_file}
+status_check $?
 
 print_head " Downloading Rabbitmq server files "
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>${log_file}
+status_check $?
 
-print_head " Installing Rabbitmq server "
-yum install rabbitmq-server -y &>>${log_file}
+print_head " Installing Rabbitmq server & Erlang "
+yum install rabbitmq-server erlang -y &>>${log_file}
+status_check $?
 
-print_head " Enabling Rabbmitmq service "
+print_head " Enabling RabbitMQ service "
 systemctl enable rabbitmq-server &>>${log_file}
+status_check $?
 
-print_head " Starting rabbitmq service "
+print_head " Starting RabbitMQ service "
 systemctl restart rabbitmq-server &>>${log_file}
+status_check $?
 
-print_head " Adding Application user  "
-rabbitmqctl add_user roboshop roboshop123 &>>${log_file}
-rabbitmqctl set_user_tags roboshop administrator &>>${log_file}
+print_head " Create Application user"
+rabbitmqctl add_user roboshop ${roboshop_app_password} &>>${log_file}
+status_check $?
+
+#rabbitmqctl set_user_tags roboshop administrator &>>${log_file}
+#status_check $?
+
+print_head " Configure Permissions for App user "
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_file}
-
+status_check $?

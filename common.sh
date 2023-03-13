@@ -98,24 +98,10 @@ nodejs() {
   print_head "Installing npm packages "
   npm install &>>${log_file}
   status_check $?
-  
-  print_head "Copying service file"
-  cp ${code_dir}/configs/${component}.service /etc/systemd/system/${component}.service &>>${log_file}
-  status_check $?
-  
-  print_head "Reload Service file"
-  systemctl daemon-reload &>>${log_file}
-  status_check $?
-  
-  print_head "Enabling ${component} service"
-  systemctl enable ${component} &>>${log_file}
-  status_check $?
-  
-  print_head "Starting ${component}  service"
-  systemctl restart ${component} &>>${log_file}
-  status_check $?
-  
+
   schema_setup
+
+  systemd_setup
 }
 
 java() {

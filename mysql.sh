@@ -1,6 +1,6 @@
 source common.sh
 
-mysql_root_Password=$1
+mysql_root_password=$1
 if [ -z "${mysql_root_password}" ] ;then
   echo -e "\e[31mMysql root password argument is missing\e[0m"
   exit 1
@@ -28,7 +28,7 @@ status_check $?
 
 print_head " Starting mysql serice "
 
-mysql_secure_installation --set-root-pass ${mysql_root_Password} &>>${log_file}
+mysql_secure_installation --set-root-pass ${mysql_root_password} &>>${log_file}
 status_check $?
 
 print_head " Connecting Mysql "

@@ -3,6 +3,7 @@ source common.sh
 mysql_root_Password = $1
 if [ -z "${mysql_root_password}"  ] ;then
   echo -e "\e[31mMysql root password argument is missing\e[0m"
+  exit 1
 fi
 
 print_head " Disabling Mysql  "

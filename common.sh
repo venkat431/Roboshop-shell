@@ -105,7 +105,7 @@ nodejs() {
 }
 
 java() {
-  print_head "Installing Maven  "
+  print_head "Installing Maven"
   yum install maven -y &>>${log_file}
   status_check $?
 

@@ -7,7 +7,7 @@ if [ -z "${mysql_root_password}" ] ;then
 fi
 
 component=shipping
-schema_setup="mysql"
+schema_type="mysql"
 
 java
 

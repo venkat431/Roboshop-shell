@@ -1,15 +1,10 @@
 source common.sh
 
 component=payment
-print_head " Installing Python"
-yum install python36 gcc python3-devel -y &>>${log_file}
-status_check $?
+roboshop_app_password=$1
+if [ -z "${roboshop_app_password}" ] ;then
+  echo -e "\e[31mRoboshop app password is missing\e[0m"
+  exit 1
+fi
 
-app_prereq_setup
-
-cd /app &>>${log_file}
-print_head " Install payment requirements "
-pip3.6 install -r requirements.txt &>>${log_file}
-status_check $?
-
-systemd_setup
+python

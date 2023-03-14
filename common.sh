@@ -49,6 +49,8 @@ systemd_setup() {
   print_head "Copying service file"
   cp ${code_dir}/configs/${component}.service /etc/systemd/system/${component}.service &>>${log_file}
   status_check $?
+  sed -i -e "/ROBOSHOP_USER_PASSWORD/${roboshop_app_password}/" /etc/systemd/system/${component}.service &>>${log_file}
+
   print_head "Reloading the Service"
   systemctl daemon-reload &>>${log_file}
   status_check $?
@@ -127,6 +129,25 @@ java() {
 
   #Schema setup function is calling
   schema_setup
+  #systemd setup function is calling
+  systemd_setup
+}
+
+
+python() {
+  print_head "Installing Python"
+  yum install python36 gcc python3-devel -y &>>${log_file}
+  status_check $?
+
+  #Setting Application prerequisites by calling function
+  app_prereq_setup
+
+  cd /app &>>${log_file}
+
+  print_head "Installing python dependencies"
+  pip3.6 install -r requirements.txt &>>${log_file}
+  status_check $?
+
   #systemd setup function is calling
   systemd_setup
 }

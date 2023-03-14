@@ -1,5 +1,6 @@
 source common.sh
 
+component=payment
 print_head " Installing Python"
 yum install python36 gcc python3-devel -y &>>${log_file}
 status_chceck $?

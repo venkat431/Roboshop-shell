@@ -34,7 +34,7 @@ app_prereq_setup() {
   rm -rf /app/* &>>${log_file}
   status_check $?
 
-  print_head "Downloading Catalogue files "
+  print_head "Downloading ${component} files "
   curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log_file}
   status_check $?
 

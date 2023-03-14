@@ -144,7 +144,7 @@ python() {
 
   cd /app &>>${log_file}
 
-  print_head "Installing python dependencies"
+  print_head "Download python dependencies"
   pip3.6 install -r requirements.txt &>>${log_file}
   status_check $?
 

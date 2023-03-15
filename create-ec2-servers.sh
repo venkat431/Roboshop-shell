@@ -45,7 +45,7 @@ if [ -z "${SGID}" ]; then
 fi
 
 
-for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis dispatch; do
+for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis ; do
   COMPONENT="${component}"
   create_ec2
 done

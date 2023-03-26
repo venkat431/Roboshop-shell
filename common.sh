@@ -75,7 +75,7 @@ schema_setup() {
     status_check $?
 
     print_head "Load MongoDB database"
-    mongo --host mongodb.devops-practice.tech </app/schema/${component}.js &>>${log_file}
+    mongo --host mongodb-dev.devops-practice.tech </app/schema/${component}.js &>>${log_file}
     status_check $?
   elif [ "${schema_type}" == "mysql" ]; then
     print_head "Installing mysql "
@@ -83,7 +83,7 @@ schema_setup() {
     status_check $?
 
     print_head "Connecting mysql database"
-    mysql -h mysql.devops-practice.tech -uroot -p${mysql_root_password} < /app/schema/${component}.sql &>>${log_file}
+    mysql -h mysql-dev.devops-practice.tech -uroot -p${mysql_root_password} < /app/schema/${component}.sql &>>${log_file}
     status_check $?
   fi
 }
